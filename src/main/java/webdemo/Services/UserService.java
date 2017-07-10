@@ -5,6 +5,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,6 +20,7 @@ public class UserService implements UserDetailsService{
     private Map<String,MyUser> users;
 
     public UserService() {
+
         MyUser user1=new MyUser("talhaklc","686868");
         MyUser user2=new MyUser("admin","134679");
 

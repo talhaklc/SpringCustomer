@@ -22,7 +22,8 @@ public class Securityconfig extends WebSecurityConfigurerAdapter{
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/index.html")
                 .antMatchers("/login-false.html")
-                .antMatchers("/login-true.html");
+                .antMatchers("/login-true.html")
+            ;
     }
 
     @Override
