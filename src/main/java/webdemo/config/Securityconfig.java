@@ -20,9 +20,9 @@ public class Securityconfig extends WebSecurityConfigurerAdapter{
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/index.html");
-        web.ignoring().antMatchers("/login-false.html");
-        web.ignoring().antMatchers("/login-true.html");
+        web.ignoring().antMatchers("/index.html")
+                .antMatchers("/login-false.html")
+                .antMatchers("/login-true.html");
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Securityconfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/**")
+                .antMatchers("/v2/**")
                 .authenticated()
                 .and()
                 .httpBasic()
@@ -41,10 +41,10 @@ public class Securityconfig extends WebSecurityConfigurerAdapter{
                 .csrf().disable()
                 .formLogin()
                 .loginPage("/index.html")
-                .loginProcessingUrl("exastax")
+                .loginProcessingUrl("/exastax")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .successForwardUrl("/login-true")
-                .failureUrl("/login-false");
+                .successForwardUrl("/login-true.html")
+                .failureUrl("/login-false.html");
     }
 }

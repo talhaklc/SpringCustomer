@@ -9,6 +9,10 @@ security:
   basic:
     enabled: false
 
+logging:
+  level: debug
+
+
 ---
 
 spring:
